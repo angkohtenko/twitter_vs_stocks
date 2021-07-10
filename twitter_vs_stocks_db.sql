@@ -1,4 +1,4 @@
-# Create tables
+-- Create tables
 CREATE TABLE stock (
     date DATE NOT NULL,
     close_price FLOAT NOT NULL,
@@ -11,3 +11,6 @@ CREATE TABLE tweets_text (
     text VARCHAR NOT NULL,
     FOREIGN KEY (stock_id) REFERENCES stock (stock_id)
 );
+
+SELECT * FROM stock;
+SELECT * FROM tweets_text;
