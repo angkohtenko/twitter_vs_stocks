@@ -1,15 +1,15 @@
 -- Create tables
 CREATE TABLE stock (
-    date DATE NOT NULL,
+    stock_date DATE NOT NULL,
     close_price FLOAT NOT NULL,
-    stock_id INT NOT NULL,
-    PRIMARY KEY (stock_id),
+    change FLOAT NOT NULL,
+    PRIMARY KEY (stock_id)
 );
 
 CREATE TABLE tweets_text (
-    date DATE NOT NULL,
+    tweet_date DATE NOT NULL,
     text VARCHAR NOT NULL,
-    FOREIGN KEY (stock_id) REFERENCES stock (stock_id)
+    FOREIGN KEY (stock_date) REFERENCES stock (stock_date)
 );
 
 SELECT * FROM stock;
