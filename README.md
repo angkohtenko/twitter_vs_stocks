@@ -29,3 +29,8 @@ As there were hundreds of words counted as features, we applied Principal Compon
 ![number_of_components]()
 
 The dataset was split into training and testing sets using the ```train_test_split``` method from the ```sklearn``` library with a standard ratio of 3:1. 
+
+## Dashboard
+A dashboard was created using Tableau to showcase the exporatory analysis of the twitter and stock datasets. An interactive component was created whereby users can filters the graphs by year to show the changes in Tweets over time. An additional interactive component will be created with findings from the machine learning model whereby users can filter the change in stock price by a key word.
+
+The dashboard can be accessed with the following link: https://public.tableau.com/app/profile/kimberly.charbonneau/viz/TweetsvsStocks/TweetsvsStocks?publish=yes
