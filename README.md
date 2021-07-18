@@ -13,7 +13,6 @@ Using [Twitter API](https://developer.twitter.com/en/docs/twitter-api) we collec
 There are five members in our team. The role of each team member will vary every week to ensure that everyone can gain experience in different areas of the project. A Slack channel was created to support communication amongst the team, and will be used to assign tickets, provide updates, and discuss any issues. The team will additionally have meetings twice a week to go over project progress and next steps.
 
 ## Preprocessing data
-The data is preprocessed in three stages. First, it begins obtaining data from various resources via API. Second, after gathering data from various sources, it begins cleaning the data by removing nan values, duplicates, determining data types, converting data types based on their types, and so on. Finally, once everything is clean, the preprocessing begins to experiment with string columns in terms of our NLP preprocessing. And it starts by lowercasing all words and removing a reasonable set of stopwords from the dataset. In addition, as you gain a better understanding of the data's structure, you can add some stop words.
 
 The ```pandas``` library was used to join the twitter datasets, as well as clean the datasets by dropping any unncessary columns and format the data types. 
 
