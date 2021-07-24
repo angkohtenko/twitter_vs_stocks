@@ -28,6 +28,17 @@ As there were hundreds of words counted as features, we applied Principal Compon
 
 The dataset was split into training and testing sets using the ```train_test_split``` method from the ```sklearn``` library with a standard ratio of 3:1. 
 
+## Machine Learning
+
+### Latent Dirichlet Allocation (LDA) Modelling
+
+For topic modelling in this project, we used Latent Dirichlet Allocation (LDA). The modelling procedure is divided into four stages. The first step is to clean the data, followed by creating a bag of words, identifying the number of subjects, and finally running the LDA algorithm. 
+
+As previously stated, the data requires cleaning, which includes preparing to remove stop words and tokenize each word. Following the cleaning process, the bag of words stage begins. It is now time to classify the text data on a topic-by-topic basis, which means disregarding its original position in the text while maintaining its frequency. LDA (Latent Dirichlet Allocation) is then a probabilistic transformation of bag-of-words counts to a lower-dimensional topic space. Tweets are regarded as a form of subject distribution. Topics are indicated by the distribution of all terms in the vocabulary. Following that, run the LDA algorithm to determine the number of topics. We chose 5 topics because they were near the top of the list. As a result, we can see that we have five topics with varying correlations.
+
+Topic-1, for example, demonstrates that Tesla and its components have a strong relationship with one another, and almost all of the words in topic-1 are about Tesla production. However, topic-2 illustrates that spaceX and its components are clustered together. It is obvious that it promotes space research. Finally, statistical modelling clearly helps in determining what Elon Musk tweets about. This project's code can be used for a variety of other tasks, such as identifying abstract subjects in a collection of documents.
+
+
 ## Database
 We used SQL query language to upload the datasets to a Postgres database. Then, using the `INNER JOIN`, we merged the two datasets to create a third dataset called *twitter_vs_stocks*. The *twitter_vs_stocks* combines the data from both datasets using the `date` as the ID. This table displays the `tokenized_text` versus the `close` amount for each date. In addition, the `change` column shows, for each date, whether the stock price has increased or decreased in comparison with the previous day’s amount after Elon Musk has posted the tweet.
 
