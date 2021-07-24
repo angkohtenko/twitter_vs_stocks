@@ -41,17 +41,7 @@ Topic-1, for example, demonstrates that Tesla and its components have a strong r
 
 ### Tweet Classification Modelling
 
-For this model, we used the preprocessed data from the `twitter_vs_stocks.csv` and created a new table called *tweets_price* with the *tweet, tokens of the tweet, prev_day_close, next_day_close* and the calculation between the **day before and the day of closing** stock price for the date the tweet was posted under the *close_price_diff column*. This is to take into consideration for *weekends* which do not have a closing stock price value in the dataset, and the randomness of Elon Musk's posting of tweets. We also made sure to remove from the training models any tweets that had no tokens inside them, or had less than one, as it ensures for more successful training of the machine learning algorithm. This table can be referenced below:
 
-![alt text](https://github.com/angkohtenko/twitter_vs_stocks/blob/karen_branch/Images/tweets_price.png "tweets_price")
-
-For the Classification model, we created a Pipeline that used the tokenized tweets via *CountVectorizer*, then *TfidfTransformer* to take into consideration the frequency of each token, and *LogisticRegression* to find the correlation between the tweets and the change in stock price. 
-
-The overall accuracy of the model is **0.57%** which shows that the model is not able to accurately find a correlation between a tweet and the change in Tesla stock. Considering the number of variables that influence the change in stock price this is an expected result, as not all of Elon Musk's tweets are directly influencing investors and are not the only factors that influence the stock market. 
-
-However, it is to be noted that when reading the *results_test* dataframe, the model is able to classify which tweets are **positive** which shows the machine is able to make good **NLP** deduction calls on tokens and is learning from the data. 
-
-![alt text](https://github.com/angkohtenko/twitter_vs_stocks/blob/karen_branch/Images/predicted_proba_test.png "predicted_proba_test")
 
 ## Database
 
