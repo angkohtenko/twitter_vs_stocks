@@ -107,7 +107,7 @@ Although, there is "Tesla" in topic 0, other words are related to SpaceX. Its co
 Topic 1 illustrates that Tesla and its components are clustered together.
 So we can admit that Elon Musk posts mainly about 2 topics: Tesla or SpaceX.
 
-LDA model maintaims a significant number of features, however it doesn't take into account the position of word in the sentence. 
+LDA model maintains a significant number of features, however it doesn't take into account the position of word in the sentence. It's hard to define the right number of topics as coherence score varies from tiny changes in the dataset. Words are often mixed between few topics that makes LDA model less trusted.
 
 ### Tweet Classification Modelling
 
