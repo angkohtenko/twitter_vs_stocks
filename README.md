@@ -1,4 +1,5 @@
-# Tweeter posts analysis
+# Twitter versus Stocks Analysis
+
 ## Overview of analysis
 Posts in social media often cause changes in the stock market that may lead to unpredictable losses in one's investment portfolio.
 In this project we analyse which words are more powerful and what influence they may have. Will they bring losses or profits to our portfolio? :moneybag:
@@ -26,14 +27,38 @@ Count of likes, replies, and retweets were selected as features along with count
 
 As there were hundreds of words counted as features, we applied Principal Component Analysis (PCA) to reduce the number of features to 150. The number of components was chosen based on an explained variance ratio.
 
-![number_of_components]()
-
 The dataset was split into training and testing sets using the ```train_test_split``` method from the ```sklearn``` library with a standard ratio of 3:1. 
 
+## Machine Learning Models
+
+### Latent Dirichlet Allocation (LDA) Modelling
+
+For topic modelling in this project, we used Latent Dirichlet Allocation (LDA). The modelling procedure is divided into four stages. The first step is to clean the data, followed by creating a bag of words, identifying the number of subjects, and finally running the LDA algorithm. 
+
+As previously stated, the data requires cleaning, which includes preparing to remove stop words and tokenize each word. Following the cleaning process, the bag of words stage begins. It is now time to classify the text data on a topic-by-topic basis, which means disregarding its original position in the text while maintaining its frequency. LDA (Latent Dirichlet Allocation) is then a probabilistic transformation of bag-of-words counts to a lower-dimensional topic space. Tweets are regarded as a form of subject distribution. Topics are indicated by the distribution of all terms in the vocabulary. Following that, run the LDA algorithm to determine the number of topics. We chose 5 topics because they were near the top of the list. As a result, we can see that we have five topics with varying correlations.
+
+Topic-1, for example, demonstrates that Tesla and its components have a strong relationship with one another, and almost all of the words in topic-1 are about Tesla production. However, topic-2 illustrates that spaceX and its components are clustered together. It is obvious that it promotes space research. Finally, statistical modelling clearly helps in determining what Elon Musk tweets about. This project's code can be used for a variety of other tasks, such as identifying abstract subjects in a collection of documents.
+
+### Tweet Classification Modelling
+
+For this model, we used the preprocessed data from the SQL table found in `twitter_vs_stocks.csv` and used a SQL query to assemble a dataframe called *tweets_price*. In this dataframe, we created the *tweet, tokens of the tweet, prev_day_close, next_day_close* colums, where the data can be easily viewed. One last column was made, which was the calculation between the **day before and the day of closing** stock price for the date the tweet was posted under the *close_price_diff* column. This is to take into consideration for *weekends* which do not have a closing stock price value in the dataset, and the randomness of Elon Musk's posting of tweets. We also made sure to remove from the training models any tweets that had none or less than one tokens inside them, as it ensures for more successful training of the machine learning algorithm. This table can be referenced below:
+
+![alt text](https://github.com/angkohtenko/twitter_vs_stocks/blob/karen_branch/Images/tweets_price.png "tweets_price")
+
+For the Classification model, we created a Pipeline that used the tokenized tweets via *CountVectorizer*, then *TfidfTransformer* to take into consideration the frequency of each token in the tweet compared to its frequency in the corpus/dataset, and *LogisticRegression* to learn the link between the tweets and the change in stock price. 
+
+The overall accuracy of the model is **0.57%** which shows that the model is not able to accurately predict a link between a tweet and the change in Tesla stock price. Considering the number of variables that influence the change in stock price this is an expected result, as not all of Elon Musk's tweets are directly influencing investors and are also not the only factors that influence the stock market. 
+
+However, it is to be noted that when reading the *results_test* data frame, the model is able to classify which tweets are **positive** which shows the machine is able to make good **NLP** deduction calls on tokens and is learning from the data. 
+
+![alt text](https://github.com/angkohtenko/twitter_vs_stocks/blob/karen_branch/Images/predicted_proba_test.png "predicted_proba_test")
+
 ## Database
+
 We used SQL query language to upload the datasets to a Postgres database. Then, using the `INNER JOIN`, we merged the two datasets to create a third dataset called *twitter_vs_stocks*. The *twitter_vs_stocks* combines the data from both datasets using the `date` as the ID. This table displays the `tokenized_text` versus the `close` amount for each date. In addition, the `change` column shows, for each date, whether the stock price has increased or decreased in comparison with the previous day’s amount after Elon Musk has posted the tweet.
 
 ## Dashboard
-A dashboard was created using Tableau to showcase the exporatory analysis of the twitter and stock datasets. An interactive component was created whereby users can filters the graphs by year to show the changes in Tweets over time. An additional interactive component will be created with findings from the machine learning model whereby users can filter the change in stock price by a key word.
 
-The dashboard can be accessed with the following link: https://public.tableau.com/app/profile/kimberly.charbonneau/viz/TweetsvsStocks/TweetsvsStocks?publish=yes
+A [dashboard](https://public.tableau.com/app/profile/kimberly.charbonneau/viz/TweetsvsStocks/TweetsvsStocks?publish=yes) was created using Tableau to showcase the exporatory analysis of the twitter and stock datasets. An interactive component was created whereby users can filters the graphs by year to show the changes in Tweets over time. An additional interactive component will be created with findings from the machine learning model whereby users can filter the change in stock price by a key word.
+
+A presentation had additionally been drafted in [Google Slides.](https://docs.google.com/presentation/d/1Pb_6SnwPIEJ_NzMGAOPzZYnDsY0nk0oNaf4ZpPRE4Cg/edit#slide=id.ge523cfaeaa_0_3)
