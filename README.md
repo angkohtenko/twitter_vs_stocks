@@ -94,7 +94,7 @@ Following the cleaning process, the bag of words stage begins. We extract the mo
 
 <img src="https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Images/word_counts.png" width="150" height="200"/>
 
-It is now time to classify the text data on a topic-by-topic basis, which means disregarding its original position in the text while maintaining its frequency. LDA (Latent Dirichlet Allocation) is then a probabilistic transformation of bag-of-words counts to a lower-dimensional topic space. Tweets are regarded as a form of subject distribution. Topics are indicated by the distribution of all terms in the vocabulary. To deterime optimal number of topic coherence score was calculated.
+Elon Musked used 8197 words in his tweets. That's enormous number of features to analyse, however Latent Dirichlet Allocation (LDA) is a probabilistic transformation of bag-of-words counts to a lower-dimensional topic space. It classifys the text data on a topic-by-topic basis, which means disregarding its original position in the text while maintaining its frequency. Tweets are regarded as a form of subject distribution. Topics are indicated by the distribution of all terms in the vocabulary. To deterime optimal number of topic coherence score was calculated.
 
 <img src="https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Images/Coherence_score.png" width="600" height="300"/>
 
@@ -107,13 +107,18 @@ Although, there is "Tesla" in topic 0, other words are related to SpaceX. Its co
 Topic 1 illustrates that Tesla and its components are clustered together.
 So we can admit that Elon Musk posts mainly about 2 topics: Tesla or SpaceX.
 
+LDA model maintaims a significant number of features, however it doesn't take into account the position of word in the sentence. 
+
 ### Tweet Classification Modelling
 
-For this model, we used the preprocessed data from the SQL table found in [twitter_vs_stocks](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Data/twitter_vs_stocks.csv) and used a SQL query to assemble a dataframe called `tweets_price`. In this dataframe, we created the `tweet, tokens of the tweet, prev_day_close, next_day_close` colums, where the data can be easily viewed. One last column was made, which was the calculation between the **day before and the day of closing** stock price for the date the tweet was posted under the `close_price_diff` column. This is to take into consideration for *weekends* which do not have a closing stock price value in the dataset, and the randomness of Elon Musk's posting of tweets. We also made sure to remove from the training models any tweets that had none or less than one tokens inside them, as it ensures for more successful training of the machine learning algorithm. This table can be referenced below:
+For this model, we used the preprocessed data from the SQL table found in [twitter_vs_stocks](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Data/twitter_vs_stocks.csv) and used a SQL query to assemble a dataframe called `tweets_price`. In this dataframe, we created the `tweet, tokens of the tweet, prev_day_close, next_day_close` colums, where the data can be easily viewed.
+One last column was made, which was the calculation between the **day before and the day of closing** stock price for the date the tweet was posted under the `close_price_diff` column. This is to take into consideration for *weekends* which do not have a closing stock price value in the dataset, and the randomness of Elon Musk's posting of tweets. We also made sure to remove from the training models any tweets that had none or less than one tokens inside them, as it ensures for more successful training of the machine learning algorithm. This table can be referenced below:
 
 ![alt text](https://github.com/angkohtenko/twitter_vs_stocks/blob/karen_branch/Images/tweets_price.png "tweets_price")
 
 For the Classification model, we created a Pipeline that used the tokenized tweets via *CountVectorizer*, then *TfidfTransformer* to take into consideration the frequency of each token in the tweet compared to its frequency in the corpus/dataset, and *LogisticRegression* to learn the link between the tweets and the change in stock price. 
+
+As the Classification is unsupervised ML model, the model uses a whole dataset as input. It shouldn't been split to training and testing subsets.
 
 The overall accuracy of the model is **0.57%** which shows that the model is not able to accurately predict a link between a tweet and the change in Tesla stock price. Considering the number of variables that influence the change in stock price this is an expected result, as not all of Elon Musk's tweets are directly influencing investors and are also not the only factors that influence the stock market. 
 
