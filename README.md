@@ -36,7 +36,7 @@ There are five members in our team. The role of each team member will vary every
     - [Latent Dirichlet Allocation (LDA) Modelling](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/LDA.ipynb)
       - Preprocess data
       - Build LDA model
-    - [Classification](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/ML_model.ipynb)
+    - [Classification](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Classification_modelling.ipynb)
       - Preprocess data
       - Build classification model
 4.	[Tableau dashboard](https://public.tableau.com/app/profile/kimberly.charbonneau/viz/TweetsvsStocks/TweetsvsStocks?publish=yes)
