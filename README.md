@@ -83,6 +83,8 @@ For topic modelling in this project, we used Latent Dirichlet Allocation (LDA). 
  - identify the number of subjects
  - run the LDA algorithm
 
+As LDA is unsupervised ML model, the model uses a whole dataset as input. It shouldn't been split to training and testing subsets.
+
 After obtaining data we removed NaN values, duplicates, and any unnecessary columns, as well as formatted data types. The ```pandas``` library was used clean the data and join the twitter datasets.
 To preprocess data for using it machine learning, we applied a few text cleaning techniques:
 -	Ignoring case; We made all words lowercase.
@@ -117,8 +119,6 @@ One last column was made, which was the calculation between the **day before and
 ![alt text](https://github.com/angkohtenko/twitter_vs_stocks/blob/karen_branch/Images/tweets_price.png "tweets_price")
 
 For the Classification model, we created a Pipeline that used the tokenized tweets via *CountVectorizer*, then *TfidfTransformer* to take into consideration the frequency of each token in the tweet compared to its frequency in the corpus/dataset, and *LogisticRegression* to learn the link between the tweets and the change in stock price. 
-
-As the Classification is unsupervised ML model, the model uses a whole dataset as input. It shouldn't been split to training and testing subsets.
 
 The overall accuracy of the model is **0.57%** which shows that the model is not able to accurately predict a link between a tweet and the change in Tesla stock price. Considering the number of variables that influence the change in stock price this is an expected result, as not all of Elon Musk's tweets are directly influencing investors and are also not the only factors that influence the stock market. 
 
