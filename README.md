@@ -98,14 +98,13 @@ Following the cleaning process, the bag of words stage was used to extract the m
 
 Elon Musk used 8,197 words in his tweets; an enormous number of features to analyse. However, Latent Dirichlet Allocation (LDA) is a probabilistic transformation of bag-of-words counts to a lower-dimensional topic space. It classifies the text data on a topic-by-topic basis, which means disregarding its original position in the text while maintaining its frequency. In terms of coherence score, the degree of semantic similarity between a topic's high scoring words is used to quantify its coherence. The method chooses the most frequently occurring words in each topic. The coherence score for a specific topic is then calculated by computing and aggregating all pairwise scores (UMass) for each of the words.
 
-The average coherence score per topic for a variety of models trained with varying numbers of topics is shown below. The number of topics for which the average score reaches a peak point is the perfect balance we seek. As a result, our best guess for the number of topics is around two. We should keep in mind that a corpus of very short documents (Elon's tweets in our case) is typically more difficult to apply to coherent models than a corpus of longer documents.
+The average coherence score per topic for a variety of models trained with varying numbers of topics is shown below. The number of topics for which the average score reaches a peak point is the perfect balance we seek. 
 
 
 
 <img src="https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Images/Coherence_score.png" width="600" height="300"/>
 
-The coherence score reaches its maximum value when the number of topics equals 2, so for our model we choose k = 2. 
-As a result, we can see that we have 2 topics with folowing key words:
+As a result, our best guess for the number of topics is around two. We should keep in mind that a corpus of very short documents (Elon's tweets in our case) is typically more difficult to apply to coherent models than a corpus of longer documents.
 
 ![LDA_topics](https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Images/LDA_topics.png)
 
