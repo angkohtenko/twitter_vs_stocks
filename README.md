@@ -96,7 +96,11 @@ Following the cleaning process, the bag of words stage was used to extract the m
 
 <img src="https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Images/word_counts.png" width="150" height="200"/>
 
-Elon Musk used 8,197 words in his tweets; an enormous number of features to analyse. However, Latent Dirichlet Allocation (LDA) is a probabilistic transformation of bag-of-words counts to a lower-dimensional topic space. It classifies the text data on a topic-by-topic basis, which means disregarding its original position in the text while maintaining its frequency. Tweets are regarded as a form of subject distribution. Topics are indicated by the distribution of all terms in the vocabulary. To determine the optimal number of topics, coherence score was calculated.
+Elon Musk used 8,197 words in his tweets; an enormous number of features to analyse. However, Latent Dirichlet Allocation (LDA) is a probabilistic transformation of bag-of-words counts to a lower-dimensional topic space. It classifies the text data on a topic-by-topic basis, which means disregarding its original position in the text while maintaining its frequency. In terms of coherence score, the degree of semantic similarity between a topic's high scoring words is used to quantify its coherence. The method chooses the most frequently occurring words in each topic. The coherence score for a specific topic is then calculated by computing and aggregating all pairwise scores (UMass) for each of the words.
+
+The average coherence score per topic for a variety of models trained with varying numbers of topics is shown below. The number of topics for which the average score reaches a peak point is the perfect balance we seek. As a result, our best guess for the number of topics is around two. We should keep in mind that a corpus of very short documents (Elon's tweets in our case) is typically more difficult to apply to coherent models than a corpus of longer documents.
+
+
 
 <img src="https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Images/Coherence_score.png" width="600" height="300"/>
 
