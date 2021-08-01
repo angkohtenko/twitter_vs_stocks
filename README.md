@@ -43,7 +43,7 @@ There are five members in our team. The role of each team member will vary every
 5.	Create presentation in [Google Slides](https://docs.google.com/presentation/d/1Pb_6SnwPIEJ_NzMGAOPzZYnDsY0nk0oNaf4ZpPRE4Cg/edit#slide=id.ge523cfaeaa_0_3)
 
 ## Technologies, languages, tools, and algorithms
-![languages_tools.png](https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Images/languages_tools.png)
+![languages_tools.png](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Images/languages_tools.png)
 
 ## Data exploration and preliminary analysis
 437 posts were pulled from Twitter API directly for the period January 1 - July 18, 2021. We extended the dataset by adding tweets from 2011 till 2020 found on [Kaggle]( https://www.kaggle.com/ayhmrba/elon-musk-tweets-2010-2021). All replies were excluded, so only 4,629 tweets were included for analysis.
