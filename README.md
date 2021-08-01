@@ -17,7 +17,7 @@ Classification and LDA models were built to analyse datasets.
 There are five members in our team. The role of each team member will vary every week to ensure that everyone can gain experience in different areas of the project. A Slack channel was created to support communication amongst the team, and will be used to assign tickets, provide updates, and discuss any issues. The team will additionally have meetings twice a week to go over project progress and next steps.
 
 ## Project outline
-1.  [Getting and storing data](https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Getting_cleaning_preprocessing_data.ipynb)
+1.	[Getting and storing data](https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Getting_cleaning_preprocessing_data.ipynb)
     - Twitter data
       - Pull data from Twitter API and clean it
       - Pull tweets data from [Kaggle for 2011-2020](https://www.kaggle.com/ayhmrba/elon-musk-tweets-2010-2021) and clean it
@@ -28,19 +28,22 @@ There are five members in our team. The role of each team member will vary every
       - Pull data from Yahoo fin library
       - Clean data
       - Upload cleaned data to PostgreSQL database and export to [tesla_stocks.csv](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Data/tesla_stocks.csv)
-2.  SQL Database
+2.	SQL Database
     - Create [ERD schema](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Images/erd_schema.png)
     - Create [tables](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/twitter_vs_stocks_db.sql) to store tweets and stock data
     - Merge 2 tables and export to [twitter_vs_stocks.csv](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Data/twitter_vs_stocks.csv)
-3.  Machine Learning Model
+3.	Machine Learning Model
     - [Latent Dirichlet Allocation (LDA) Modelling](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/LDA.ipynb)
       - Preprocess data
       - Build LDA model
     - [Classification](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Classification_modelling.ipynb)
       - Preprocess data
       - Build classification model
-4.  [Tableau dashboard](https://public.tableau.com/app/profile/kimberly.charbonneau/viz/TweetsvsStocks/TweetsvsStocks?publish=yes)
-5.  Create presentation in [Google Slides](https://docs.google.com/presentation/d/1Pb_6SnwPIEJ_NzMGAOPzZYnDsY0nk0oNaf4ZpPRE4Cg/edit#slide=id.ge523cfaeaa_0_3)
+4.	[Tableau dashboard](https://public.tableau.com/app/profile/kimberly.charbonneau/viz/TweetsvsStocks/TweetsvsStocks?publish=yes)
+5.	Create presentation in [Google Slides](https://docs.google.com/presentation/d/1Pb_6SnwPIEJ_NzMGAOPzZYnDsY0nk0oNaf4ZpPRE4Cg/edit#slide=id.ge523cfaeaa_0_3)
+
+## Technologies, languages, tools, and algorithms
+![languages_tools.png](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Images/languages_tools.png)
 
 ## Data exploration and preliminary analysis
 437 posts were pulled from Twitter API directly for the period January 1 - July 18, 2021. We extended the dataset by adding tweets from 2011 till 2020 found on [Kaggle]( https://www.kaggle.com/ayhmrba/elon-musk-tweets-2010-2021). All replies were excluded, so only 4,629 tweets were included for analysis.
@@ -87,21 +90,24 @@ As LDA is an unsupervised ML model, the model uses a whole dataset as input; It 
 
 After obtaining data we removed NaN values, duplicates, and any unnecessary columns, as well as formatted data types. The ```pandas``` library was used to clean the data and join the twitter datasets.
 To preprocess the data for LDA, we applied a few text cleaning techniques:
-- Ignoring case; We made all words lowercase.
-- Ignoring punctuation; We tokenized text.
-- Ignoring words that don’t contain much information; We used the ```nltk``` library to get English stop words and extended the list based on available data.
-- Reducing words to their stem; We used the ```PorterStemmer``` algorithm.
+-	Ignoring case; We made all words lowercase.
+-	Ignoring punctuation; We tokenized text.
+-	Ignoring words that don’t contain much information; We used the ```nltk``` library to get English stop words and extended the list based on available data.
+-	Reducing words to their stem; We used the ```PorterStemmer``` algorithm.
 
 Following the cleaning process, the bag of words stage was used to extract the most popular words in tweets with their counts.
 
 <img src="https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Images/word_counts.png" width="150" height="200"/>
 
-Elon Musk used 8,197 words in his tweets; an enormous number of features to analyse. However, Latent Dirichlet Allocation (LDA) is a probabilistic transformation of bag-of-words counts to a lower-dimensional topic space. It classifies the text data on a topic-by-topic basis, which means disregarding its original position in the text while maintaining its frequency. Tweets are regarded as a form of subject distribution. Topics are indicated by the distribution of all terms in the vocabulary. To determine the optimal number of topics, coherence score was calculated.
+Elon Musk used 8,197 words in his tweets; an enormous number of features to analyse. However, Latent Dirichlet Allocation (LDA) is a probabilistic transformation of bag-of-words counts to a lower-dimensional topic space. It classifies the text data on a topic-by-topic basis, which means disregarding its original position in the text while maintaining its frequency. In terms of coherence score, the degree of semantic similarity between a topic's high scoring words is used to quantify its coherence. The method chooses the most frequently occurring words in each topic. The coherence score for a specific topic is then calculated by computing and aggregating all pairwise scores (UMass) for each of the words.
+
+The average coherence score per topic for a variety of models trained with varying numbers of topics is shown below. The number of topics for which the average score reaches a peak point is the perfect balance we seek. 
+
+
 
 <img src="https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Images/Coherence_score.png" width="600" height="300"/>
 
-The coherence score reaches its maximum value when the number of topics equals 2, so for our model we choose k = 2. 
-As a result, we can see that we have 2 topics with folowing key words:
+As a result, our best guess for the number of topics is around two. We should keep in mind that a corpus of very short documents (Elon's tweets in our case) is typically more difficult to apply to coherent models than a corpus of longer documents.
 
 ![LDA_topics](https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Images/LDA_topics.png)
 
@@ -133,7 +139,7 @@ A [dashboard](https://public.tableau.com/app/profile/kimberly.charbonneau/viz/Tw
 
 A presentation had additionally been drafted in [Google Slides.](https://docs.google.com/presentation/d/1Pb_6SnwPIEJ_NzMGAOPzZYnDsY0nk0oNaf4ZpPRE4Cg/edit#slide=id.p)
 
-### Result of Analysis
+## Result of Analysis
 
 *Twitter*, a social media platform that enables its users to broadcast their thoughts in *“tweets”* ranging from 140 to 280 characters (2021) with around 186 million users as of 2020, has become a widely used platform for many prominent figures to intimately engage with the world.  
 
@@ -141,4 +147,7 @@ A presentation had additionally been drafted in [Google Slides.](https://docs.go
 
 The purpose of our project was to try to *find a correlation between the change of stock price and the influence of Elon Musk’s tweets*, and test whether or not they influence the stock market. This was tested by gathering data on Elon’s tweets from 2011 to 2020 as well as Tesla’s stock data for the same time frame. This data was used to train a machine learning model to test for a correlation between Musk’s tweets, and any positive or negative change in stock. Also, we tested to see if a machine learning model was able to understand tweets and learn if they were positive based on the fluctuation in stock value.
 
-The results of the machine learning model demonstrate the weak correlation between Elon Musk’s tweets and the fluctuation of stock price, as shown by the **57% accuracy result**. As expected from the stock market, a system that is heavily influenced by an array of factors ranging from demand and supply, interest rates, dividends, investors and many more. The results further reinforce that this relationship is weak, as they are not isolated events. For Elon Musk’s tweets, we ran an LDA model that showed they are heavily focused on his interests on subjects regarding SpaceX, Tesla and space exploration. While the world becomes more heavily influenced by social media, it’s also getting overloaded with data, as we saw from most of Elon Musk’s tweets, which were found to have no significant impact on stock prices. 
+The results of the machine learning model demonstrate the weak correlation between Elon Musk’s tweets and the fluctuation of stock price, as shown by the **57% accuracy result**. As expected from the stock market, a system that is heavily influenced by an array of factors ranging from demand and supply, interest rates, dividends, investors and many more. The results further reinforce that this relationship is weak, as they are not isolated events. For Elon Musk’s tweets, we ran an LDA model that showed they are heavily focused on his interests on subjects regarding SpaceX, Tesla, and space exploration. While the world becomes more heavily influenced by social media, it’s also getting overloaded with data, as we saw from most of Elon Musk’s tweets, which were found to have no significant impact on stock prices. 
+
+## Recommendations for Future Analysis
+Based on our findings, it is recommended to use this ML model to assess the influence of likes and retweets on changes in stocks, as they appeared to show some correlation with trading volumne during our exploratory analysis. Furthermore, as articles have indicated Elon Musk's influence on cryptocurrencies, we could use ML to predict whether Musk's tweets have an influence on cryptocurrencies instead of Tesla stock prices. Finally, this model could be applied to other individuals with greater public influence to determine whether their tweets are more strongly correlated with stocks.
