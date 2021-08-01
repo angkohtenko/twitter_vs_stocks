@@ -151,3 +151,4 @@ The results of the machine learning model demonstrate the weak correlation betwe
 
 ## Recommendations for Future Analysis
 Based on our findings, it is recommended to use this ML model to assess the influence of likes and retweets on changes in stocks, as they appeared to show some correlation with trading volumne during our exploratory analysis. Furthermore, as articles have indicated Elon Musk's influence on cryptocurrencies, we could use ML to predict whether Musk's tweets have an influence on cryptocurrencies instead of Tesla stock prices. Finally, this model could be applied to other individuals with greater public influence to determine whether their tweets are more strongly correlated with stocks.
+
