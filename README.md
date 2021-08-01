@@ -138,3 +138,13 @@ However, it is to be noted that when observing the *results_test* data frame, we
 A [dashboard](https://public.tableau.com/app/profile/kimberly.charbonneau/viz/TweetsvsStocks/TweetsvsStocks?publish=yes) was created using Tableau to showcase the exporatory analysis of the twitter and stock datasets. An interactive component was created whereby users can filter the graphs by year to show the changes in Tweets over time. An additional interactive component will be created with findings from the machine learning model whereby users can filter the change in stock price by a key word.
 
 A presentation had additionally been drafted in [Google Slides.](https://docs.google.com/presentation/d/1Pb_6SnwPIEJ_NzMGAOPzZYnDsY0nk0oNaf4ZpPRE4Cg/edit#slide=id.p)
+
+### Result of Analysis
+
+*Twitter*, a social media platform that enables its users to broadcast their thoughts in *“tweets”* ranging from 140 to 280 characters (2021) with around 186 million users as of 2020, has become a widely used platform for many prominent figures to intimately engage with the world.  
+
+*Elon Musk*, the founder and CEO of *Tesla*, is an active Twitter user himself (*@elonmusk*) and has consistently increased the number of tweets he sends out each year, increasing since 2015. 
+
+The purpose of our project was to try to *find a correlation between the change of stock price and the influence of Elon Musk’s tweets*, and test whether or not they influence the stock market. This was tested by gathering data on Elon’s tweets from 2011 to 2020 as well as Tesla’s stock data for the same time frame. This data was used to train a machine learning model to test for a correlation between Musk’s tweets, and any positive or negative change in stock. Also, we tested to see if a machine learning model was able to understand tweets and learn if they were positive based on the fluctuation in stock value.
+
+The results of the machine learning model demonstrate the weak correlation between Elon Musk’s tweets and the fluctuation of stock price, as shown by the **57% accuracy result**. As expected from the stock market, a system that is heavily influenced by an array of factors ranging from demand and supply, interest rates, dividends, investors and many more. The results further reinforce that this relationship is weak, as they are not isolated events. For Elon Musk’s tweets, we ran an LDA model that showed they are heavily focused on his interests on subjects regarding SpaceX, Tesla and space exploration. While the world becomes more heavily influenced by social media, it’s also getting overloaded with data, as we saw from most of Elon Musk’s tweets, which were found to have no significant impact on stock prices. 
