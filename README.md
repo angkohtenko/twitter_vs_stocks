@@ -1,5 +1,5 @@
 # Twitter versus Stocks Analysis
-## Overview of analysis
+## Overview of Analysis
 Posts in social media often cause changes in the stock market that may lead to unpredictable losses in one's investment portfolio.
 In this project we analyse which words are more powerful and what influence they may have. Will they bring losses or profits to our portfolio? :moneybag:
 
@@ -13,10 +13,10 @@ All Elon's reposts and replies were excluded from analysis.
 
 Classification and LDA models were built to analyse datasets.
 
-## Communication protocol
+## Communication Protocol
 There are five members in our team. The role of each team member will remain the same each week to ensure that we had an expert for each topic of the project. A Slack channel was created to support communication amongst the team, and will be used to assign tickets, provide updates, and discuss any issues. The team will additionally have meetings twice a week to go over project progress and next steps.
 
-## Project outline
+## Project Outline
 1.	[Getting and storing data](https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Getting_cleaning_preprocessing_data.ipynb)
     - Twitter data
       - Pull data from Twitter API and clean it
@@ -42,10 +42,10 @@ There are five members in our team. The role of each team member will remain the
 4.	[Tableau dashboard](https://public.tableau.com/app/profile/kimberly.charbonneau/viz/TweetsvsStocks/TweetsvsStocks?publish=yes)
 5.	Create presentation in [Google Slides](https://docs.google.com/presentation/d/1Pb_6SnwPIEJ_NzMGAOPzZYnDsY0nk0oNaf4ZpPRE4Cg/edit#slide=id.ge523cfaeaa_0_3)
 
-## Technologies, languages, tools, and algorithms
+## Technologies, Languages, Tools, and Algorithms
 ![languages_tools.png](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Images/languages_tools.png)
 
-## Data exploration and preliminary analysis
+## Data Exploration and Preliminary Analysis
 437 posts were pulled from Twitter API directly for the period January 1 - July 18, 2021. We extended the dataset by adding tweets from 2011 till 2020 found on [Kaggle]( https://www.kaggle.com/ayhmrba/elon-musk-tweets-2010-2021). All replies were excluded, so only 4,629 tweets were included for analysis.
 
 During analysis we revealed that Elon Musk posted significantly more tweets since 2018.
@@ -72,7 +72,7 @@ A correlation between the number of likes and stock trading volume can be seen a
 
 ![ Like_count_vs_volume_traded](https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Images/Like_count_vs_volume_traded.png)
 
-## Database
+## DataBase
 
 We used SQL query language to upload the datasets to a Postgres database. Then, using the `INNER JOIN`, we merged the two datasets to create a third dataset called *twitter_vs_stocks*. The [twitter_vs_stocks](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Data/twitter_vs_stocks.csv) combines the data from both datasets using the `date` as the ID. This table displays the `tokenized_text` versus the `close` amount for each date. In addition, the `change` column shows, for each date, whether the stock price has increased or decreased in comparison with the previous day’s amount after Elon Musk has posted the tweet.
 
