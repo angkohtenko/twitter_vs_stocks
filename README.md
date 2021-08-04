@@ -14,7 +14,7 @@ All Elon's reposts and replies were excluded from analysis.
 Classification and LDA models were built to analyse datasets.
 
 ## Communication protocol
-There are five members in our team. The role of each team member will vary every week to ensure that everyone can gain experience in different areas of the project. A Slack channel was created to support communication amongst the team, and will be used to assign tickets, provide updates, and discuss any issues. The team will additionally have meetings twice a week to go over project progress and next steps.
+There are five members in our team. The role of each team member will remain the same each week to ensure that we had an expert for each topic of the project. A Slack channel was created to support communication amongst the team, and will be used to assign tickets, provide updates, and discuss any issues. The team will additionally have meetings twice a week to go over project progress and next steps.
 
 ## Project outline
 1.	[Getting and storing data](https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Getting_cleaning_preprocessing_data.ipynb)
@@ -152,3 +152,9 @@ The results of the machine learning model demonstrate the weak correlation betwe
 ## Recommendations for Future Analysis
 Based on our findings, it is recommended to use the Logistic Regression ML model to assess the influence of likes and retweets on changes in stocks, as they appeared to show some correlation with trading volumne during our exploratory analysis. Furthermore, as articles have indicated Elon Musk's influence on cryptocurrencies, we could use ML to predict whether Musk's tweets have an influence on cryptocurrencies instead of Tesla stock prices. Finally, this model could be applied to other individuals with greater public influence to determine whether their tweets are more strongly correlated with stocks.
 
+## What the Team Would Do Differently
+If this project were to be completed again, the team would have set different deadlines for each task of the project versus following the deadlines provided for a segment deliverable. Following this approach would have ensured certain portions of the project, such as data preprocessing, were completed prior to selecting the database and creating the ML model. During the current project, the data preprocessing was completed in tandem with the database and ML model being built, resulting in code having to be updated more frequently. By setting deadlines for each task, work could be more efficient.
+
+Furthermore, the team should have spent more time investigating datasets prior to preprocessing the data, creating the database, and training the ML model. Half-way through the project the dataset changed and the database had to be re-done as a result. Likewise, the team should have used a database more compatible with text data, such as MongoDB, versus using SQL Alchmey and postgres which the team was more comfortable with.
+
+Finally, the team would have liked to have more variety in their tasks so that each member had equal opportunity to work with the code, as during the project some team members had more code-heavy roles than others. The original intent was to have individuals who were experts in their portion of the task, however, this  prevented some team members from fully comprehending components of the project. Having each team member work in all aspects of the project would have additionally allowed for greater understanding within the team.
