@@ -1,5 +1,5 @@
 # Twitter versus Stocks Analysis
-## Overview of analysis
+## Overview of Analysis
 Posts in social media often cause changes in the stock market that may lead to unpredictable losses in one's investment portfolio.
 In this project we analyse which words are more powerful and what influence they may have. Will they bring losses or profits to our portfolio? :moneybag:
 
@@ -13,10 +13,10 @@ All Elon's reposts and replies were excluded from analysis.
 
 Classification and LDA models were built to analyse datasets.
 
-## Communication protocol
-There are five members in our team. The role of each team member will vary every week to ensure that everyone can gain experience in different areas of the project. A Slack channel was created to support communication amongst the team, and will be used to assign tickets, provide updates, and discuss any issues. The team will additionally have meetings twice a week to go over project progress and next steps.
+## Communication Protocol
+There are five members in our team. The role of each team member will remain the same each week to ensure that we had an expert for each topic of the project. A Slack channel was created to support communication amongst the team, and will be used to assign tickets, provide updates, and discuss any issues. The team will additionally have meetings twice a week to go over project progress and next steps.
 
-## Project outline
+## Project Outline
 1.	[Getting and storing data](https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Getting_cleaning_preprocessing_data.ipynb)
     - Twitter data
       - Pull data from Twitter API and clean it
@@ -42,10 +42,10 @@ There are five members in our team. The role of each team member will vary every
 4.	[Tableau dashboard](https://public.tableau.com/app/profile/kimberly.charbonneau/viz/TweetsvsStocks/TweetsvsStocks?publish=yes)
 5.	Create presentation in [Google Slides](https://docs.google.com/presentation/d/1Pb_6SnwPIEJ_NzMGAOPzZYnDsY0nk0oNaf4ZpPRE4Cg/edit#slide=id.ge523cfaeaa_0_3)
 
-## Technologies, languages, tools, and algorithms
+## Technologies, Languages, Tools, and Algorithms
 ![languages_tools.png](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Images/languages_tools.png)
 
-## Data exploration and preliminary analysis
+## Data Exploration and Preliminary Analysis
 437 posts were pulled from Twitter API directly for the period January 1 - July 18, 2021. We extended the dataset by adding tweets from 2011 till 2020 found on [Kaggle]( https://www.kaggle.com/ayhmrba/elon-musk-tweets-2010-2021). All replies were excluded, so only 4,629 tweets were included for analysis.
 
 During analysis we revealed that Elon Musk posted significantly more tweets since 2018.
@@ -72,7 +72,7 @@ A correlation between the number of likes and stock trading volume can be seen a
 
 ![ Like_count_vs_volume_traded](https://github.com/angkohtenko/twitter_vs_stocks/blob/angela_branch/Images/Like_count_vs_volume_traded.png)
 
-## Database
+## DataBase
 
 We used SQL query language to upload the datasets to a Postgres database. Then, using the `INNER JOIN`, we merged the two datasets to create a third dataset called *twitter_vs_stocks*. The [twitter_vs_stocks](https://github.com/angkohtenko/twitter_vs_stocks/blob/main/Data/twitter_vs_stocks.csv) combines the data from both datasets using the `date` as the ID. This table displays the `tokenized_text` versus the `close` amount for each date. In addition, the `change` column shows, for each date, whether the stock price has increased or decreased in comparison with the previous day’s amount after Elon Musk has posted the tweet.
 
@@ -150,5 +150,11 @@ The purpose of our project was to try to *find a correlation between the change 
 The results of the machine learning model demonstrate the weak correlation between Elon Musk’s tweets and the fluctuation of stock price, as shown by the **57% accuracy result**. As expected from the stock market, a system that is heavily influenced by an array of factors ranging from demand and supply, interest rates, dividends, investors and many more. The results further reinforce that this relationship is weak, as they are not isolated events. For Elon Musk’s tweets, we ran an LDA model that showed they are heavily focused on his interests on subjects regarding SpaceX, Tesla, and space exploration. While the world becomes more heavily influenced by social media, it’s also getting overloaded with data, as we saw from most of Elon Musk’s tweets, which were found to have no significant impact on stock prices. 
 
 ## Recommendations for Future Analysis
-Based on our findings, it is recommended to use this ML model to assess the influence of likes and retweets on changes in stocks, as they appeared to show some correlation with trading volumne during our exploratory analysis. Furthermore, as articles have indicated Elon Musk's influence on cryptocurrencies, we could use ML to predict whether Musk's tweets have an influence on cryptocurrencies instead of Tesla stock prices. Finally, this model could be applied to other individuals with greater public influence to determine whether their tweets are more strongly correlated with stocks.
+Based on our findings, it is recommended to use the Logistic Regression ML model to assess the influence of likes and retweets on changes in stocks, as they appeared to show some correlation with trading volumne during our exploratory analysis. Furthermore, as articles have indicated Elon Musk's influence on cryptocurrencies, we could use ML to predict whether Musk's tweets have an influence on cryptocurrencies instead of Tesla stock prices. Finally, this model could be applied to other individuals with greater public influence to determine whether their tweets are more strongly correlated with stocks.
 
+## What the Team Would Do Differently
+If this project were to be completed again, the team would have set different deadlines for each task of the project versus following the deadlines provided for a segment deliverable. Following this approach would have ensured certain portions of the project, such as data preprocessing, were completed prior to selecting the database and creating the ML model. During the current project, the data preprocessing was completed in tandem with the database and ML model being built, resulting in code having to be updated more frequently. By setting deadlines for each task, work could be more efficient.
+
+Furthermore, the team should have spent more time investigating datasets prior to preprocessing the data, creating the database, and training the ML model. Half-way through the project the dataset changed and the database had to be re-done as a result. Likewise, the team should have used a database more compatible with text data, such as MongoDB, versus using SQL Alchmey and postgres which the team was more comfortable with.
+
+Finally, the team would have liked to have more variety in their tasks so that each member had equal opportunity to work with the code, as during the project some team members had more code-heavy roles than others. The original intent was to have individuals who were experts in their portion of the task, however, this  prevented some team members from fully comprehending components of the project. Having each team member work in all aspects of the project would have additionally allowed for greater understanding within the team.
